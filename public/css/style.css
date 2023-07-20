@@ -17,6 +17,7 @@ html{
 }
 
 body{
+    overflow-x: hidden;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -120,8 +121,7 @@ body{
 /*temp input fields style code*/
 .temp_form{
     width: 60%;
-    position: absolute;
-    margin: 8rem auto 6rem;
+    position: relative;
 }
 
 .temp_form input[type="text"] {
@@ -156,12 +156,19 @@ body{
     background-color: #fff;
 }
 
+.main_content {
+    width: 100%;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 250px;
+}
+
 /*temp details show here*/
 
 .tempInfo{
-    
+    margin: 30px;
+    margin-left: 360px;
     width: 50rem;
-    margin: 20rem;
     min-height: 20rem;
     align-items: center;
     background-color: #323544;
@@ -259,21 +266,33 @@ footer p{
 /*responsive code*/
 
 @media (max-width: 768px){
-    .main_header_left {
-        height: auto;
-        margin: 2rem 0;
+    .main_content {
+        margin-left: 5rem;
+        margin-top: 5rem;
     }
-
-    .main_header_right{
-        height: auto;
-        margin-top: 1rem;
+    .temp_form {
+        width: 80%;
+        overflow: hidden;
     }
-
-    .temp_form{
-        width: auto;
+    .tempInfo {
+        margin-left: 5rem;
+        margin-top: 5rem;
+        width: 80%;
     }
+}
 
-    .tempInfo{
-        width: auto;
+@media (max-width: 1200px) {
+    .main_content {
+        margin-left: 5rem;
+        margin-top: 5rem;
+    }
+    .temp_form {
+        width: 80%;
+        overflow: hidden;
+    }
+    .tempInfo {
+        margin-left: 5rem;
+        margin-top: 5rem;
+        width: 80%;
     }
 }

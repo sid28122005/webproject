@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {{>headerlinks}};
+    {{>headerlinks}}
 </head>
 <body>
     
-    {{>navbar}};
+    {{>navbar}}
     <!--main header-->
     <div class="container-fluid main_header">
         <div class="row">
@@ -34,11 +34,13 @@
         </div>
     </div>
 
-    {{>footer}};
+    {{>footer}}
 
     <script src="js/main.js"></script>
+
     <script>
-        const day = document.getElementById('day')
+        const curDay = document.getElementById("day");
+        const curDate = document.getElementById("today_date");
         const getCurrentDay = () => {
         var weekday = new Array(7);
         weekday[0] = "Sunday";
@@ -50,10 +52,8 @@
         weekday[6] = "Saturday";
 
         let currentTime = new Date();
-        days = weekday[currentTime.getDay()];
-        let day = document.getElementById('day');
-
-        day.innerText = days;
+        let day = weekday[currentTime.getDay()];
+        return day;
       };
 
       const getCurrentTime = () => {
@@ -73,26 +73,14 @@
         ];
 
         var now = new Date();
-        var month = months[now.getMonth() + 1];
+        var month = months[now.getMonth()];
         var date = now.getDate();
 
-        let hours = now.getHours();
-        let mins = now.getMinutes();
-
-        let periods = "AM";
-
-        if (hours > 11) {
-          periods = "PM";
-          if (hours > 12) hours -= 12;
-        }
-        if (mins < 10) {
-          mins = "0" + mins;
-        }
-
-        return `${month} ${date} | ${hours}:${mins}${periods}`;
+        return `${date} ${month}`;
       };
 
-      curDate.innerHTML = getCurrentDay() + " | " + getCurrentTime();
+      curDate.innerHTML = getCurrentTime();
+      curDay.innerHTML = getCurrentDay();
     </script>
 </body>
 </html>
